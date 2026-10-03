@@ -1,0 +1,15 @@
+{
+  "name": "heymark",
+  "displayName": "HeyMark",
+  "version": "0.1.0",
+  "description": "Plan, schedule and review social media content for your brands, and triage your inbox and comments, with your HeyMark data.",
+  "author": {
+    "name": "HeyMark Inc.",
+    "email": "soporte@heymark.ai",
+    "url": "https://heymark.ai"
+  },
+  "homepage": "https://heymark.ai",
+  "repository": "https://github.com/HeyMark-ai/heymark-plugin",
+  "license": "MIT",
+  "keywords": ["social media", "content planning", "community management", "instagram", "tiktok", "analytics"]
+}
