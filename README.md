@@ -8,7 +8,7 @@
 | --- | --- |
 | `weekly-content-plan` | Plans a week of content from your brand profile, recent results and what is already scheduled, then saves the approved ideas in HeyMark. |
 | `inbox-triage` | Ranks unread messages, escalations and recent comments, drafts replies in your brand voice, and sends only the replies you approve. |
-| `performance-review` | Reviews post performance for a period, compares it with the competitors you follow, and suggests three prioritized actions. |
+| `performance-review` | Reviews post performance for a period, explains what worked, and suggests three prioritized actions. |
 | `backlog-to-schedule` | Checks what your ideas and drafts are missing, proposes publishing times, and schedules the posts you approve. |
 
 The skills work in English and Spanish.
@@ -25,7 +25,7 @@ You need a HeyMark account with at least one brand. Scheduling and publishing al
 
 The plugin contains only instructions (Markdown) and configuration (JSON). It runs no code on your machine.
 
-It connects to one server, `https://mcp.heymark.ai`, operated by HeyMark Inc. Through that server your assistant reads and changes the HeyMark brands your account can access: brand profile, posts and drafts, scheduled publications, inbox messages, comments, analytics and competitors. What you type in the conversation is processed by your AI assistant's provider; HeyMark receives only the tool calls the assistant makes.
+It connects to one server, `https://mcp.heymark.ai`, operated by HeyMark Inc. Through that server your assistant reads and changes the HeyMark brands your account can access: brand profile, posts and drafts, scheduled publications, inbox messages, comments and analytics. What you type in the conversation is processed by your AI assistant's provider; HeyMark receives only the tool calls the assistant makes.
 
 Public actions, such as replying to a comment or a direct message, hiding a comment, publishing or deleting, show a preview first and run only after you approve it.
 
