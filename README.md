@@ -42,6 +42,8 @@ Public actions, such as replying to a comment or a direct message, hiding a comm
 
 Skill text must stay provider neutral (say "the model", never name an AI assistant or its maker), use no em dashes, and use neutral Spanish tuteo with "publicación". CI checks the first two rules, the manifests and secrets on every pull request.
 
+Tool and argument names in the skills come from the HeyMark MCP server. Check them against its `tools/list` before editing a skill, and bump `version` in both manifests with every release.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
