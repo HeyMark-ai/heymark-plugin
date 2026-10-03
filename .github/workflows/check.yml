@@ -12,7 +12,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -27,12 +27,12 @@ jobs:
 
       - name: Skill text is provider neutral and has no em dashes
         run: |
-          ! grep -rniE 'claude|anthropic|chatgpt|openai|codex|gpt-' skills/
-          ! grep -rn '—' skills/ README.md plugin.json .claude-plugin/plugin.json
+          if grep -rniE 'claude|anthropic|chatgpt|openai|codex|gpt-' skills/; then exit 1; fi
+          if grep -rn '—' skills/ README.md plugin.json .claude-plugin/plugin.json; then exit 1; fi
 
       - name: Only Markdown, JSON, SVG and repo metadata files
         run: |
-          ! git ls-files | grep -vE '\.(md|json|svg|yml)$|^LICENSE$|^\.gitignore$'
+          if git ls-files | grep -vE '\.(md|json|svg|yml)$|^LICENSE$|^\.gitignore$'; then exit 1; fi
 
       - name: Plugin validates
         run: npx --yes @anthropic-ai/claude-code@2.1.288 plugin validate .
