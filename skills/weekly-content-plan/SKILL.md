@@ -22,10 +22,11 @@ Build a plan grounded in the brand's own data, get the user's approval, then sav
 4. Read what worked: `get_analytics_overview` with `days: 30`, and `get_recent_content` for the main platform. Report Stories and feed publications separately; never add them together.
 5. Draft the plan as a table: day, platform and format, idea, hook, and the data point that justifies it. Default to 3 to 5 publications unless the user gives a cadence. Only use platforms the brand has connected.
 6. Ask the user to approve, edit or drop items. Do not write anything before this approval.
-7. For each approved item, call `create_post` with `title`, `idea` (planning content in HeyMark Markdown), `platform`, `format`, an optional `caption`, and `scheduled_at` as the planning date. For a Reel or video, put the timed plan in `script`, not in `idea`. Generate one `creation_attempt_id` UUID per item and reuse it only when retrying that item.
+7. For each approved item, call `create_post` with `title`, `idea` (planning content in HeyMark Markdown) and `scheduled_at` as the planning date. `platform`, `format` and `caption` go together: pass all three to save the destination and caption, or omit all three to save an idea without a destination. For a Reel or video, put the timed plan in `script`, not in `idea`. Generate one `creation_attempt_id` UUID per item.
 8. Report the created posts with the URL each call returns.
 
 ## Important
 
 - `scheduled_at` on `create_post` is a planning date. It never schedules a publication. Tell the user the posts are saved as ideas, not scheduled. To schedule them, use the `backlog-to-schedule` skill.
 - Report an item as created only when `create_post` succeeded for it. List any failures with the returned reason.
+- Reuse an item's `creation_attempt_id` only when `create_post` rejected its arguments and you retry with corrected ones. It does not deduplicate writes. If a call ends without a clear result (timeout, dropped connection), do not call it again: run `list_posts` for that planning date and check whether the post exists before deciding.

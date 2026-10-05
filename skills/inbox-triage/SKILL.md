@@ -18,13 +18,14 @@ Find what needs a human answer, rank it, draft replies in the brand voice, and s
 
 1. Call `list_brands`. If the account has several brands and the user did not name one, ask which brand. Pass that `brand_id` to every later call.
 2. Call `get_brand_context` to learn the brand voice, tone and facts from the brand profile.
-3. Direct messages: call `get_inbox_overview` with `filter: "unread"` and `includeRecentMessages: true`. Call `list_inbox_escalations` for conversations that were handed to a human. Open a conversation with `get_conversation_messages` when you need the full history.
-4. Comments: call `list_posts` with `status: "published"` and a recent date range, then `get_post_comments` for each recent post. A thread already answered by the brand does not need a reply.
-5. Present one ranked list: urgent (complaints, escalations, purchase intent), needs a reply, spam or abuse, and no action. Include a short draft reply for each item that needs one.
-6. Let the user edit or approve each draft.
-7. To send an approved reply, call `reply_to_conversation` (direct message) or `reply_to_comment` (public comment) without `confirm_token`. Show the returned preview. Call again with identical arguments plus the `confirm_token` only after the user approves that exact preview.
-8. For spam the user wants hidden, use `set_comment_hidden` with the same preview and approval flow. Prefer hiding over deleting.
-9. After replying, offer to mark handled conversations read with `mark_conversation_read`.
+3. Direct messages: call `get_inbox_overview` with `filter: "unread"` for the unread count. Then call `list_inbox_conversations` and follow `cursor` = `nextCursor` until it is null or you have found every unread conversation the overview counted. Call `list_inbox_escalations` and follow `nextCursor` the same way for conversations that were handed to a human. Open a conversation with `get_conversation_messages` when you need the full history; pass `next_cursor` as `cursor` for older messages.
+4. Comments: call `list_posts` with `status: "published"` and a recent date range, following `nextCursor` while `hasMore` is true. Call `get_post_comments` for each of those posts and pass `next_cursor` as `cursor` until it is null. A thread already answered by the brand does not need a reply.
+5. If the inbox or the comments are too many to read in one pass, say how many you reviewed and how many remain instead of presenting a partial list as complete.
+6. Present one ranked list: urgent (complaints, escalations, purchase intent), needs a reply, spam or abuse, and no action. Include a short draft reply for each item that needs one.
+7. Let the user edit or approve each draft.
+8. To send an approved reply, call `reply_to_conversation` (direct message) or `reply_to_comment` (public comment) without `confirm_token`. Show the returned preview. Call again with identical arguments plus the `confirm_token` only after the user approves that exact preview.
+9. For spam the user wants hidden, use `set_comment_hidden` with the same preview and approval flow. Prefer hiding over deleting.
+10. After replying, offer to mark handled conversations read with `mark_conversation_read`.
 
 ## Important
 
