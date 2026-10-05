@@ -16,8 +16,8 @@
     "com.openai": {
       "interface": {
         "displayName": "HeyMark",
-        "shortDescription": "Social media for your brands",
-        "longDescription": "HeyMark is the workspace where community managers, agencies and creators run the social media of one or many brands. Connect your HeyMark account to plan a week of content from your brand profile and past results, turn ideas and drafts into scheduled publications, triage unread messages and comments with replies in your brand voice, and review how your posts perform.\n\nHeyMark only reads and changes the brands your account can access. Public actions such as replying to a comment or a direct message, publishing, or deleting always show a preview and wait for your approval. Scheduling and publishing need a connected social account.",
+        "shortDescription": "Plan, schedule and reply",
+        "longDescription": "Plan the week's content, schedule your posts, reply to messages and comments, and review how your posts performed on Instagram, TikTok, LinkedIn, Facebook, YouTube and X.\n\nIt works with your brand's real data: what you already published, your metrics, your calendar and your brand profile. The weekly plan comes from what worked for you, replies are written in your brand voice, and what you approve gets scheduled on your social accounts.\n\nPublic actions such as replying to a comment or a direct message, publishing, or deleting always show a preview and wait for your approval. You need a HeyMark account with at least one connected social account. It works for one brand or many.",
         "developerName": "HeyMark Inc.",
         "category": "Productivity",
         "capabilities": ["Read", "Write"],
@@ -41,8 +41,8 @@
         "release_notes": "Initial release: weekly content plan, inbox and comment triage, performance review, and backlog to scheduled publications.",
         "translations": {
           "es-ES": {
-            "subtitle": "Redes sociales de tus marcas",
-            "description": "HeyMark es el espacio donde community managers, agencias y creadores gestionan las redes sociales de una o varias marcas. Conecta tu cuenta de HeyMark para planificar una semana de contenido a partir del perfil de tu marca y sus resultados, convertir ideas y borradores en publicaciones programadas, revisar mensajes y comentarios sin leer con respuestas en la voz de tu marca, y analizar el rendimiento de tus publicaciones.\n\nHeyMark solo lee y modifica las marcas a las que tu cuenta tiene acceso. Las acciones públicas, como responder un comentario o un mensaje directo, publicar o eliminar, siempre muestran una vista previa y esperan tu aprobación. Para programar y publicar necesitas una cuenta social conectada."
+            "subtitle": "Planifica, programa y responde",
+            "description": "Planifica el contenido de la semana, programa tus publicaciones, responde mensajes y comentarios y revisa cómo les fue a tus publicaciones en Instagram, TikTok, LinkedIn, Facebook, YouTube y X.\n\nTrabaja con los datos reales de tu marca: lo que ya publicaste, tus métricas, tu calendario y tu perfil de marca. El plan de la semana sale de lo que te funcionó, las respuestas van en la voz de tu marca y lo que apruebas queda programado en tus redes sociales.\n\nLas acciones públicas, como responder un comentario o un mensaje directo, publicar o eliminar, siempre muestran una vista previa y esperan tu aprobación. Necesitas una cuenta de HeyMark con al menos una red social conectada. Sirve para una marca o para varias."
           }
         }
       }
