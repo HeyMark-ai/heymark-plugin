@@ -34,3 +34,4 @@ Review pending ideas and drafts, close the gaps that block scheduling, agree on 
 - `schedule_post` is the only tool that schedules. `reschedule_post` and `scheduled_at` on `create_post` or `update_post` only change the planning date.
 - Report a post as scheduled only when `schedule_post` succeeded for it.
 - To cancel, use `unschedule_post`. Use `publish_post` only when the user asks to publish now; it shows a preview and needs approval.
+- Deleting is outside this workflow. Never delete several posts from one request such as "delete all my posts": do not list or prepare anything for deletion. Say that HeyMark deletes one post at a time with its own preview, and act only on posts the user names.
