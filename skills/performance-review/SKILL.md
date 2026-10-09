@@ -19,7 +19,7 @@ Answer with the brand's real numbers, explain why the best and weakest content p
 
 ## Steps
 
-1. Call `list_brands`. If the account has several brands and the user did not name one, ask which brand. Pass that `brand_id` to every later call.
+1. Call `list_brands`. If the account has several brands and the user did not name one, ask which brand. Use that `brand_id` in every later call.
 2. Pick the period from the request: `7d`, `30d`, `90d` or `365d`. Default to `30d`.
 3. Call `get_analytics_report` with that `period` for `section: "overview"`, then `section: "kpis"`. Use `network` when the user names one platform.
 4. Call `get_analytics_report` with `section: "top_posts"` twice: `ranking: "best"` and `ranking: "worst"`. If the result says `truncated: true`, tell the user older publications were not ranked.

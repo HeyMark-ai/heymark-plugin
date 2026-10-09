@@ -9,6 +9,7 @@
     "url": "https://heymark.ai"
   },
   "homepage": "https://heymark.ai",
+  "privacyPolicyUrl": "https://heymark.ai/privacy-policy/",
   "repository": "https://github.com/HeyMark-ai/heymark-plugin",
   "license": "MIT",
   "keywords": ["social media", "content planning", "community management", "instagram", "tiktok", "analytics"]
