@@ -16,13 +16,13 @@ Build a plan grounded in the brand's own data, get the user's approval, then sav
 
 ## Steps
 
-1. Call `list_brands`. If the account has several brands and the user did not name one, ask which brand. Pass that `brand_id` to every later call.
+1. Call `list_brands`. If the account has several brands and the user did not name one, ask which brand. Use that `brand_id` in every later call.
 2. Call `get_brand_context`. Use its brand profile, time zone, connected accounts and planning statuses. If it returns `brand_profile_continuations`, follow each cursor before using that field.
 3. Read what already exists for the target week: `list_posts` with `status: "all"` and `fromDate`/`toDate` covering the week. Follow `nextCursor` while `hasMore` is true. Do not plan over dates that already have content unless the user asks.
 4. Read what worked: `get_analytics_overview` with `days: 30`, and `get_recent_content` for the main platform. Report Stories and feed publications separately; never add them together.
 5. Draft the plan as a table: day, platform and format, idea, hook, and the data point that justifies it. Default to 3 to 5 publications unless the user gives a cadence. Only use platforms the brand has connected.
 6. Ask the user to approve, edit or drop items. Do not write anything before this approval.
-7. For each approved item, call `create_post` with `title`, `idea` (planning content in HeyMark Markdown) and `scheduled_at` as the planning date. `platform`, `format` and `caption` go together: pass all three to save the destination and caption, or omit all three to save an idea without a destination. For a Reel or video, put the timed plan in `script`, not in `idea`. Generate one `creation_attempt_id` UUID per item.
+7. For each approved item, call `create_post` with `title`, `idea` (planning content in HeyMark Markdown) and `scheduled_at` as the planning date. `platform`, `format` and `caption` go together: send all three to save the destination and caption, or omit all three to save an idea without a destination. For a Reel or video, put the timed plan in `script`, not in `idea`. Generate one `creation_attempt_id` UUID per item.
 8. Report the created posts with the URL each call returns.
 
 ## Important

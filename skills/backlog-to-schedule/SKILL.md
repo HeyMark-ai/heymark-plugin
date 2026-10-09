@@ -16,7 +16,7 @@ Review pending ideas and drafts, close the gaps that block scheduling, agree on 
 
 ## Steps
 
-1. Call `list_brands`. If the account has several brands and the user did not name one, ask which brand. Pass that `brand_id` to every later call.
+1. Call `list_brands`. If the account has several brands and the user did not name one, ask which brand. Use that `brand_id` in every later call.
 2. Call `get_brand_context` for the brand time zone and connected accounts.
 3. Call `list_posts` with `status: "all"` and follow `nextCursor` while `hasMore` is true. Keep the ideas, drafts and failed posts. Note what is already scheduled so new dates do not collide.
 4. For each candidate, call `get_post_context` with `sections: ["caption", "media", "settings"]` and classify it:
